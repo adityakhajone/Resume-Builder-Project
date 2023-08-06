@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Resume Builder</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Resume Builder</h1>
+        <form id="resume-form">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="phone">Phone:</label>
+            <input type="tel" id="phone" name="phone" required>
+
+            <h2>Education</h2>
+            <div id="education-list">
+                <!-- Education entries will be added dynamically using JavaScript -->
+            </div>
+            <button type="button" id="add-education">Add Education</button>
+
+            <h2>Experience</h2>
+            <div id="experience-list">
+                <!-- Experience entries will be added dynamically using JavaScript -->
+            </div>
+            <button type="button" id="add-experience">Add Experience</button>
+
+            <h2>Skills</h2>
+            <ul id="skills-list">
+                <!-- Skills will be added dynamically using JavaScript -->
+            </ul>
+            <input type="text" id="skill" placeholder="Enter a skill">
+            <button type="button" id="add-skill">Add Skill</button>
+
+            <button type="submit">Generate Resume</button>
+        </form>
+        <div id="generated-resume">
+            <!-- Generated resume will be displayed here -->
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
