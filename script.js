@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", function () {
       <input type="text" name="degree[]" placeholder="Degree" required>
       <input type="text" name="school[]" placeholder="School" required>
       <input type="text" name="year[]" placeholder="Year" required>
-      <button type="button" class="remove-entry">Remove</button>
+   
     </div>
   `;
 
