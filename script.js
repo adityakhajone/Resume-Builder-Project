@@ -4,6 +4,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const skillsList = document.getElementById("skills-list");
   const resumeForm = document.getElementById("resume-form");
   const generatedResume = document.getElementById("generated-resume");
+ 
 
   const addEducationButton = document.getElementById("add-education");
   const addExperienceButton = document.getElementById("add-experience");
@@ -12,9 +13,9 @@ document.addEventListener("DOMContentLoaded", function () {
   const educationTemplate = `
     <div class="entry">
       <input type="text" name="degree[]" placeholder="Degree" required>
-      <input type="text" name="school[]" placeholder="School" required>
+      <input type="text" name="school[]" placeholder="College" required>
       <input type="text" name="year[]" placeholder="Year" required>
-   
+    
     </div>
   `;
 
@@ -23,7 +24,7 @@ document.addEventListener("DOMContentLoaded", function () {
       <input type="text" name="title[]" placeholder="Title" required>
       <input type="text" name="company[]" placeholder="Company" required>
       <input type="text" name="exp-year[]" placeholder="Year" required>
-      <button type="button" class="remove-entry">Remove</button>
+    
     </div>
   `;
 
@@ -47,7 +48,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     if (skill) {
       const skillEntry = document.createElement("li");
-      skillEntry.innerHTML = `${skill} <button type="button" class="remove-skill">Remove</button>`;
+      skillEntry.innerHTML = `${skill} `;
       skillsList.appendChild(skillEntry);
       skillInput.value = "";
     }
@@ -111,7 +112,26 @@ document.addEventListener("DOMContentLoaded", function () {
         ${skills.map((skill) => `<li>${skill}</li>`).join("")}
       </ul>
     `;
+    generatedResume.innerHTML = generatedResumeContent; 
+    
+    $(document).ready(function(){
 
-    generatedResume.innerHTML = generatedResumeContent;
+      var specialElementHandlers={
+       "#editor":function(element,renderer){
+         return true; 
+       }
+      };
+      $("#cmd").click(function(){
+       var doc = new jsPDF();
+       doc.fromHTML($("#generated-resume").html(),15,15,{
+         "width":170,
+         "elementHandlers":specialElementHandlers
+       });
+       doc.save("resume.pdf");
+      })
+     });  
+    
   });
 });
+
+
